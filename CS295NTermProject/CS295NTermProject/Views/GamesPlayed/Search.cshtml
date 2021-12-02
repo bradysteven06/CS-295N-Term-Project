@@ -3,16 +3,7 @@
 @{
 }
 
-<h1 class="text-center">Games Played</h1>
-
-
-<form asp-action="Search" method="post">
-    <label asp-for="Name">Name:</label><input asp-for="Name" />
-    <button type="submit">Search</button>
-</form>
-
-<a class="btn-outline-primary" asp-controller="GamesPlayed" asp-action="Edit" asp-route-id="0">Add New Game</a>
-<br />
+<h1 class="text-center">Search Results</h1>
 
 <div class="border border-dark">
     <table class="table">

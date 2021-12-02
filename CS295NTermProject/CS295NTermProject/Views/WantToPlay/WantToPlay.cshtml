@@ -1,21 +1,23 @@
-﻿
+﻿@model GameInfoModel
+
 @{
 }
 
-<h1>Want To Play</h1>
+<h1 class="text-center">Want To Play</h1>
 
-<input id="Search" type="Search" />
-<input id="Search" type="button" value="Search" />
-<input id="Add" type="button" value="Add" />
-<input id="Delete" type="button" value="Delete" />
 
+<form  asp-action="Search" method="post">
+    <label asp-for="Name">Name:</label><input asp-for="Name" />
+    <button type="submit">Search</button>
+</form>
+
+<a class="btn-outline-primary" asp-controller="WantToPlay" asp-action="Edit" asp-route-id="0">Add New Game</a>
 <br />
 
 <div class="border border-dark">
     <table class="table">
         <thead>
             <tr>
-                <th class="mr-5">WantPlayID</th>
                 <th class="mr-5">Game Name</th>
                 <th class="mr-5">Game Release Date</th>
                 <th>Game Platform</th>
@@ -25,12 +27,11 @@
             @foreach (var game in ViewBag.gameList)
             {
             <tr>
-                <td>@game.Name</td>
+                <td class="background-green">@game.Name</td>
                 <td>@game.ReleaseDate</td>
                 <td>@game.Platform</td>
-                @*
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@shoe.ShoeId">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@shoe.ShoeId">Delete</a></td>*@
+                <td><a asp-controller="WantToPlay" asp-action="Edit" asp-route-id="@game.GameID">Edit</a></td>
+                <td><a asp-controller="WantToPlay" asp-action="Remove" asp-route-id="@game.GameID">Delete</a></td>
             </tr>
             }
         </tbody>
