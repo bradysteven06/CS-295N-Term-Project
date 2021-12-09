@@ -12,6 +12,7 @@ namespace CS295NTermProject.Models
 
         public DbSet<GameInfoModel> GameInfo { get; set; }
 
+        // Adds initial value to database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<GameInfoModel>().HasData(
